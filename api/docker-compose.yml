@@ -1,0 +1,30 @@
+version: '2'
+services:
+    web:
+        image: website
+        build:
+            context: ./
+            dockerfile: ./app.docker
+        volumes:
+            - ./:/var/www/html
+        ports:
+            - "8088:80"
+        links:
+            - mysql:mysql
+    mysql:
+        image: mysql
+        environment:
+            - "PMA_HOST=mysql"
+            - "MYSQL_ROOT_PASSWORD=password"
+            - "MYSQL_DATABASE=todoDb"
+            - "MYSQL_USER=jnpl"
+            - "MYSQL_PASSWORD=johnpaul"
+        ports:
+            - "3308:3306"
+        expose:
+            - '3308'
+        volumes:
+            - ./database:/docker-entrypoint-initdb.d
+            - mysql_data:/var/lib/mysql
+volumes:
+    mysql_data:

@@ -1,0 +1,8 @@
+{
+	"database": {
+		"name": "todoDb",
+		"user": "jnpl",
+		"password": "johnpaul",
+		"server": "mysql"
+	}
+}
