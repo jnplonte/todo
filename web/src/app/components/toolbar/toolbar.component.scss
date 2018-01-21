@@ -1,0 +1,15 @@
+@import '~assets/styles/variables';
+
+.toolbar-component {
+    .company-title {
+        font-weight: 600;
+        margin: 0px 15px;
+        text-decoration: none;
+        color: $white;
+        &:hover,
+        &:active {
+            text-decoration: none;
+            color: $white;
+        }
+    }
+} 

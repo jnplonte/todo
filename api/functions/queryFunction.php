@@ -71,7 +71,7 @@ class queryFunction extends func\baseFunction {
         
         if (mysqli_query($this->conn, $sqlUpdate)) {
             if (mysqli_affected_rows($this->conn) > 0) {
-                $returnValue = array('id' => $last_id, 'data' => $data);
+                $returnValue = array('id' => $id, 'data' => $data);
             }
         }
 

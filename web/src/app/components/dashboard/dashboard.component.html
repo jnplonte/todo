@@ -1,0 +1,43 @@
+<div class="row justify-content-center align-items-center dashboard-component">
+    <div class="col-12 col-sm-12 col-md-8 col-lg-6">
+        <div class="card">
+            <h3 class="bold">TODO LIST</h3>
+            <form name="login-form" (ngSubmit)="f.form.valid && onNewTodo(f)" #f="ngForm" class="todo-add-container" novalidate autocomplete="off">
+                <div class="row">
+                    <div class="col-6 col-sm-8 col-md-8 col-lg-9">
+                        <mat-form-field class="todo-add-field width-100" [hideRequiredMarker]="true">
+                            <input matInput type="text" placeholder="Add New Todo List" [(ngModel)]="newTodo" required name="newTodo"/>
+                            <mat-error *ngIf="f.submitted && !newTodo">
+                                Todo List is <strong>required</strong>
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-6 col-sm-4 col-md-4 col-lg-3">
+                        <button mat-raised-button [disabled]="loading" color="primary" class="login-btn width-100">
+                            <mat-spinner [hidden]="!loading" class="loading-btn" [diameter]="25"></mat-spinner>
+                            <span [hidden]="loading">Add Todo List</span>
+                        </button>
+                    </div>  
+                </div>
+            </form>
+            <div class="todo-value-container" *ngIf="todoListCnt> 0">
+                <div *ngFor="let item of todoList; let i = index" class="row no-gutters">
+                    <div class="col-1 check-container">
+                        <mat-checkbox class="check-box" (change)="onCheckTodo(i)" [checked]="item.active == 0"></mat-checkbox>
+                    </div>  
+                    <div class="col-10 value-container" (dblclick)="item.active == 1 && item.disabled=false">
+                        <input class="width-100 value" [value]="item.value" (change)="onUpdateTodo(i, $event)" (mouseout)="item.disabled=true" [disabled]="item.disabled" [ngClass]="{'disabled': item.disabled, 'dash': item.active == 0}" />
+                    </div>
+                    <div class="col-1 delete-container">
+                        <mat-icon class="delete" (click)="onDeleteTodo(i)" svgIcon="delete"></mat-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="todo-count-container" *ngIf="todoListCnt > 0">
+                <hr/>
+                <span>{{todoListCnt}} Todo List</span>
+            </div>
+        </div>
+    </div>
+</div>
+  

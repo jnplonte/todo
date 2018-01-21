@@ -1,1 +1,19 @@
 /api/vendor
+/web/node_modules
+/web/coverage
+/web/dist
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# System Files
+.DS_Store
+/web/.DS_Store
+/api/.DS_Store
+Thumbs.db
+/web/Thumbs.db
+/api/Thumbs.db

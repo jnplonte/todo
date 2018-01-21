@@ -36,7 +36,11 @@ abstract class baseFunction {
 
         $parts = array();
         foreach ($data as $key => $value) {
-            $parts[] =  $key . " = '".$value."'";
+            if(is_numeric($value)) {
+                $parts[] =  $key . " = ".$value;
+            } else {
+                $parts[] =  $key . " = '".$value."'";
+            }
         }
         return implode(",", $parts);
     }

@@ -1,0 +1,9 @@
+@import '~assets/styles/variables';
+
+.app-component {
+    height:100%;
+    .alert-container {
+        position: relative;
+        display: block;
+    }
+} 

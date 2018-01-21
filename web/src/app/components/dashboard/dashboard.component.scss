@@ -1,0 +1,35 @@
+@import '~assets/styles/variables';
+
+.dashboard-component {
+    margin-top: $base-margin;
+    .todo-add-container {
+        margin-bottom: $base-margin;
+    }
+    .todo-value-container {
+        .check-container {
+            display: inline-block;
+            text-align: center;
+            .label {
+                margin-bottom: 0px;
+            }
+        }
+        .value-container {
+            display: inline-block;
+            .disabled {
+                border: none;
+                background: transparent;
+                cursor: pointer;
+            }
+            .dash {
+                text-decoration: line-through;
+            }
+        }
+        .delete-container {
+            display: inline-block;
+            text-align: center;
+            .delete {
+                cursor: pointer;
+            }
+        }
+    }
+}

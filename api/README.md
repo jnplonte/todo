@@ -1,5 +1,5 @@
 # TODO API
-
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
 ## Dependencies
 * php: [http://php.net/](http://php.net/)
