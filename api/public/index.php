@@ -37,6 +37,7 @@ $route->onError(function ($route, $message) {
 
 $route->with('/api/v1/todo-list', function () use ($route) {
     $todoList = new \todo\todoList();
+    
     $route->respond('GET', '/?', function($req, $res, $service) use ($todoList) { return $todoList->getAll($req, $res, $service); });
 
     $route->respond('GET', '/[:id]', function($req, $res, $service) use ($todoList) { return $todoList->get($req, $res, $service); });

@@ -15,7 +15,7 @@
 
 
 ## How to Use
-- Run Docker `docker-compose up` it will listen to http://localhost:8088/
+- Run Docker `docker-compose up --force-recreate --abort-on-container-exit` it will listen to http://localhost:8088/
 
 #### get todo list
 - **[GET]** `http://localhost:8088/api/v1/todo-list/{id}`
@@ -28,7 +28,7 @@
 #### update todo list
 - **[PUT]** `http://localhost:8088/api/v1/todo-list/{id}`
 - required params: "id"
-- required body: {"value" : "toto number one"}
+- optional body: {"value" : "toto number one", "active" : "1"}
 
 #### delete account
 - **[PUT]** `http://localhost:8088/api/v1/todo-list/{id}`

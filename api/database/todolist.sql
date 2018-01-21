@@ -1,6 +1,3 @@
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
 -- --------------------------------------------------------
 
 --
@@ -10,16 +7,15 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `todolist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `value` varchar(225) DEFAULT NULL,
+  `active` tinyint(1) DEFAULT 1,
   `create_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `todolist`
 --
 
-INSERT INTO `todolist` (`id`, `value`) VALUES
-(1, 'todo list number one'),
-(2, 'some toto list');
+INSERT INTO `todolist` (`id`, `value`, `active`) VALUES (1, 'todo list number one', 1), (2, 'some toto list from docker', 1);
 
 -- --------------------------------------------------------

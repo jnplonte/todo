@@ -35,7 +35,6 @@ class todoList implements inter\baseInterface {
 
     public function put($request, $response, $service) {
         parse_str(file_get_contents('php://input'), $postParam);
-        $service->validate($postParam['value'], 'Invalid Value Parameter')->notNull();
 
         $results = $this->queryFunction->_update($request->id, $postParam);  
         return $response->json($this->helper->response($results));
