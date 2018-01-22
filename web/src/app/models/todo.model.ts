@@ -1,7 +1,7 @@
 export interface Todo {
     'value': string;
     'id': number;
-    'active': number;
+    'active': string;
     'disabled'?: Boolean;
     'create_date'?: string;
 }

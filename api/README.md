@@ -11,6 +11,7 @@
 
 ## Installation
 - Intall Docker `https://docs.docker.com/engine/installation/`
+- Login to Docker `https://docs.docker.com/engine/reference/commandline/login/`
 - Install dependencies by running `docker run --rm -v $(pwd):/app composer/composer:latest install`
 
 

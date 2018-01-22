@@ -19,11 +19,13 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit() {
         this.helperService.getData('todoList').subscribe(result => {
-            result.data.forEach(element => {
-                element.disabled = true;
-            });
+            if (result && result['data']) {
+                result['data'].forEach(element => {
+                    element.disabled = true;
+                });
 
-            this.todoList = result.data;
+                this.todoList = result['data'];
+            }
         });
     }
 
@@ -38,13 +40,13 @@ export class DashboardComponent implements OnInit {
         };
 
         this.helperService.postData('todoList', todoData).subscribe((result) => {
-            if (result) {
+            if (result && result['data']) {
                 this.alertService.success('added ' + this.newTodo);
                 this.todoList.push({
-                    'value': result.data.data.value,
-                    'id': result.data.id,
+                    'value': result['data']['data']['value'],
+                    'id': result['data']['id'],
                     'disabled': true,
-                    'active': 1
+                    'active': '1'
                 });
 
                 this.newTodo = '';
@@ -82,13 +84,15 @@ export class DashboardComponent implements OnInit {
 
     onCheckTodo(index: number) {
         const data: Object = this.todoList[index];
-        const isActive: boolean = !data['active'];
+        const isActive: boolean = (data['active'] !== '1');
         const todoData: Object = {
             'active': isActive ? 1 : 0
         };
+
+        console.log(data);
         this.helperService.putData('todoList', data['id'], todoData).subscribe((result) => {
             if (result) {
-                this.todoList[index].active = isActive ? 1 : 0;
+                this.todoList[index].active = isActive ? '1' : '0';
             }
         });
     }
