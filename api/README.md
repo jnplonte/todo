@@ -6,6 +6,7 @@
 * mysql: [https://www.mysql.com/](https://www.mysql.com/)
 * docker: [http://docker.com/](http://docker.com/)
 * klein: [https://github.com/klein/klein.php](https://github.com/klein/klein.php)
+* phpunit: [https://phpunit.de](https://phpunit.de)
 * composer: [https://getcomposer.org/](https://getcomposer.org/)
 
 
@@ -35,3 +36,6 @@
 - **[PUT]** `http://localhost:8088/api/v1/todo-list/{id}`
 - required params: "id"
 
+
+## Testing
+- run `docker run -v $(pwd):/app --rm phpunit/phpunit:latest --bootstrap ./test/baseTest.php ./test/todoListTest.php` -> this will run unit testing
