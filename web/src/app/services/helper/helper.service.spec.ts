@@ -1,4 +1,5 @@
 import { inject, TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 import { HelperService } from './helper.service';
 
@@ -7,7 +8,10 @@ describe('HelperService', function () {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            providers: [ HelperService ]
+            providers: [ HelperService ],
+            imports: [
+                HttpClientModule
+            ]
         });
     });
 

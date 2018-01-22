@@ -33,7 +33,6 @@ const appRoutes: Routes = [
                   HttpClientModule,
                   FormsModule,
                   ReactiveFormsModule,
-                  HttpClientModule,
                   RouterModule.forRoot(appRoutes, { useHash: true }) ],
   declarations: [ AppComponent,
                   PageNotFoundComponent,

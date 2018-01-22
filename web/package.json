@@ -5,7 +5,7 @@
   "scripts": {
     "start": "ng serve --port 8282 --aot --verbose",
     "build": "ng build --prod",
-    "test": "ng test --code-coverage --environment=test",
+    "test": "ng test --code-coverage --environment=test --sourcemaps=false",
     "lint": "ng lint",
     "generate:component": "node ./config/generate.js \"component\"",
     "generate:directive": "node ./config/generate.js \"directive\"",
@@ -29,7 +29,7 @@
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
-    "@angular/cli": "1.6.4",
+    "@angular/cli": "^1.6.4",
     "@angular/compiler-cli": "^5.1.0",
     "@angular/language-service": "^5.1.0",
     "@types/jasmine": "~2.8.3",

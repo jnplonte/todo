@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { constants } from 'fs';
 
+import { Todo } from './../../models/todo.model';
+
 @Component({
     selector: 'dashboard',
     templateUrl: './dashboard.component.html',
@@ -8,7 +10,7 @@ import { constants } from 'fs';
 })
 export class DashboardComponent implements OnInit {
     newTodo: string = '';
-    todoList: Array<any> = [];
+    todoList: Array<Todo>;
     loading: boolean = false;
 
     constructor(@Inject('helperService') private helperService: any, @Inject('alertService') private alertService: any) {
@@ -26,7 +28,7 @@ export class DashboardComponent implements OnInit {
     }
 
     get todoListCnt() {
-        return this.todoList.length;
+        return (typeof(this.todoList) !== 'undefined') ? this.todoList.length : 0;
     }
 
     onNewTodo(form: any) {
@@ -42,8 +44,9 @@ export class DashboardComponent implements OnInit {
                     'value': result.data.data.value,
                     'id': result.data.id,
                     'disabled': true,
-                    'active': '1'
+                    'active': 1
                 });
+
                 this.newTodo = '';
                 form.resetForm();
             } else {
@@ -85,7 +88,7 @@ export class DashboardComponent implements OnInit {
         };
         this.helperService.putData('todoList', data['id'], todoData).subscribe((result) => {
             if (result) {
-                this.todoList[index].active = isActive;
+                this.todoList[index].active = isActive ? 1 : 0;
             }
         });
     }
